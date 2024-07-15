@@ -8,7 +8,7 @@ require("./db");
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // Your frontend URL
+  origin: 'https://note-app-lanq.onrender.com', // Your frontend URL
   credentials: true, // Allow credentials (cookies)
 };
 
