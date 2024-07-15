@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const URL = "mongodb://localhost:27017/notes" || process.env.MONGO_URL;
+const URL =process.env.MONGO_URI;
 
 mongoose.connect(URL).then(()=>{
     console.log('MongoDB connected')
