@@ -1,6 +1,7 @@
 // src/context/NoteContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import BASE_URL from './apiConfig';
 
 const NoteContext = createContext();
 
@@ -14,7 +15,7 @@ export const NoteProvider = ({ children }) => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/notes');
+        const response = await axios.get(`${BASE_URL}/notes`);
         setNotes(response.data);
       } catch (error) {
         console.error('Error fetching notes:', error);
@@ -43,7 +44,7 @@ export const NoteProvider = ({ children }) => {
   const createNote = async (title, content, mediaLink) => {
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/note',
+        `${BASE_URL}/note`,
         { title, content, mediaLink },
         { withCredentials: true }
       );
@@ -56,7 +57,7 @@ export const NoteProvider = ({ children }) => {
 
   const fetchNote = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/v1/note/${id}`);
+      const response = await axios.get(`${BASE_URL}/note/${id}`);
       setNote(response.data);
       setLoading(false);
     } catch (error) {
