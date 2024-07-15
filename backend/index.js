@@ -8,8 +8,8 @@ require("./db");
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: 'https://note-app-lanq.onrender.com', // Your frontend URL
-  credentials: true, // Allow credentials (cookies)
+  origin: 'https://note-app-tan-two.vercel.app',
+  credentials: true,
 };
 
 app.use(express.json());
